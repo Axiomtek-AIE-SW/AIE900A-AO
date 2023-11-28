@@ -1,0 +1,14 @@
+# sudo su
+# cd /sys/devices/platform/f81435_mode_ctrl/f81435/
+
+[Switch to rs232]: (Default mode)
+   # echo rs232 > uartMode
+   # cat uartMode
+
+[Switch to rs422]:
+   # echo rs422 > uartMode
+   # cat uartMode
+
+[Switch to rs485]:
+   # echo rs485 > uartMode
+   # cat uartMode
