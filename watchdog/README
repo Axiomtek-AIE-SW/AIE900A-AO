@@ -1,0 +1,7 @@
+1. Compile:
+   # gcc wdt.c -o wdt
+
+2. Test: (default: 60 seconds, if there is no timeout value as input parameter)
+   # sudo ./wdt <timeout in seconds>
+
+   => System will reboot automatically after timeout
