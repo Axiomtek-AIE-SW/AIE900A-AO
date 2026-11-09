@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" role="img" aria-labelledby="title description">
+  <title id="title">Serial Mode Control GUI mockup</title>
+  <desc id="description">Two COM rows show rs422 and rs485 in dropdowns. Apply, Save, Clear, and Close appear on the bottom row. This is an illustration, not a screenshot.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1">
+      <stop stop-color="#f6f8fc"/><stop offset="1" stop-color="#e9eff8"/>
+    </linearGradient>
+    <style>
+      text { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; fill:#1c293d; }
+      .small { font-size:12px; font-weight:700; letter-spacing:1.2px; fill:#52637d; }
+      .body { font-size:15px; }
+      .button { font-size:14px; font-weight:650; text-anchor:middle; }
+    </style>
+  </defs>
+  <rect width="720" height="360" rx="20" fill="url(#bg)"/>
+  <text x="64" y="40" class="small">GUI MOCKUP · TWO CONFIGURED PORTS</text>
+  <rect x="64" y="67" width="596" height="254" rx="14" fill="#d4deed"/>
+  <rect x="60" y="61" width="596" height="254" rx="14" fill="#fff" stroke="#ccd6e5"/>
+  <path d="M74 61h568a14 14 0 0 1 14 14v31H60V75a14 14 0 0 1 14-14Z" fill="#edf2fa"/>
+  <path d="M60 106h596" stroke="#d8e0ec"/>
+  <text x="358" y="90" text-anchor="middle" font-size="17" font-weight="700">Serial Mode Control</text>
+  <path d="m625 80 9 9m0-9-9 9" fill="none" stroke="#55647a" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="87" y="137" class="body">Select a mode and click Apply</text>
+  <g class="body">
+    <text x="87" y="177" font-weight="650">COM1</text>
+    <text x="87" y="221" font-weight="650">COM2</text>
+    <rect x="173" y="153" width="244" height="35" rx="7" fill="#f8fafc" stroke="#c4d0df"/>
+    <rect x="173" y="197" width="244" height="35" rx="7" fill="#f8fafc" stroke="#c4d0df"/>
+    <text x="187" y="176">rs422</text>
+    <text x="187" y="220">rs485</text>
+    <path d="m391 168 5 5 5-5m-10 44 5 5 5-5" fill="none" stroke="#52637d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M87 249h542" stroke="#e0e7f1"/>
+  <rect x="87" y="265" width="129" height="34" rx="7" fill="#f4f7fb" stroke="#c4d0df"/>
+  <rect x="225" y="265" width="129" height="34" rx="7" fill="#f4f7fb" stroke="#c4d0df"/>
+  <rect x="363" y="265" width="129" height="34" rx="7" fill="#f4f7fb" stroke="#c4d0df"/>
+  <rect x="501" y="265" width="129" height="34" rx="7" fill="#f4f7fb" stroke="#c4d0df"/>
+  <g class="button">
+    <text x="151.5" y="287">Apply</text><text x="289.5" y="287">Save</text>
+    <text x="427.5" y="287">Clear</text><text x="565.5" y="287">Close</text>
+  </g>
+</svg>
