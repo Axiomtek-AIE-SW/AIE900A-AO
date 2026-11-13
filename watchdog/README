@@ -1,7 +1,10 @@
-1. Compile:
+1. Check RuntimeWatchdogSec in the watchdog drop-in file "/etc/systemd/system.conf.d/watchdog.conf";
+   set it to 0 and reboot before testing this watchdog sample code.
+ 
+2. Compile:
    # gcc wdt.c -o wdt
 
-2. Test: (default: 60 seconds, if there is no timeout value as input parameter)
+3. Test: (default: 60 seconds, if there is no timeout value as input parameter)
    # sudo ./wdt <timeout in seconds>
 
    => System will reboot automatically after timeout
