@@ -19,7 +19,7 @@ This is sample code for Axiomtek AIE900A-AO
 
     #### \[Command example\]:
     > ```
-    > $ md5sum -c mfi_jetson-agx-orin-32GB-JP5.1.1-AIE900A-AO-V1.0.0.tbz2.md5sum
+    > $ md5sum -c JetPack_7.2.1_Linux_JETSON_AGX_ORIN_TARGETS.tbz2.md5sum
     > ```
 
 - **Step 3. If above command returns OK, Untar the image file with the command below:**
@@ -30,7 +30,7 @@ This is sample code for Axiomtek AIE900A-AO
 
     #### \[Command example\]:
     > ```
-    > $ sudo tar jxvf mfi_jetson-agx-orin-32GB-JP5.1.1-AIE900A-AO-V1.0.0.tbz2
+    > $ sudo tar jxvf JetPack_7.2.1_Linux_JETSON_AGX_ORIN_TARGETS.tbz2
     > ```
 
 - **Step 4. Change the directory to the image package folder with the command below:**
@@ -41,7 +41,7 @@ This is sample code for Axiomtek AIE900A-AO
 
     #### \[Command example\]:
     > ```
-    > $ cd mfi_jetson-agx-orin-32GB-JP5.1.1-AIE900A-AO-V1.0.0
+    > $ cd JetPack_7.2.1_Linux_JETSON_AGX_ORIN_TARGETS/Linux_for_Tegra/
     > ```
 
 - **Step 5. Make sure the recovery switch(SSW2) has been switched to ON, and run the command lsusb, then the command line "0955:7223 Nvidia Corp." should be listed.**
@@ -56,7 +56,7 @@ This is sample code for Axiomtek AIE900A-AO
 - **Step 6. Running the following command to flash the image.**
 
     > ```
-    > $ sudo ./tools/kernel_flash/l4t_initrd_flash.sh --flash-only --massflash 5 --network usb0 --showlogs
+    > $ sudo ./tools/kernel_flash/l4t_initrd_flash.sh --flash-only
     > ```
 
 - **Step 7. The flashing procedure takes approximately 20 minutes or more. Once finished, you should see "Flash is successful "as shown below, and AIE900A-AO will automatically reboot, and please switch the recovery switch(SW2) to OFF to return to standard mode.**
