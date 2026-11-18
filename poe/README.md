@@ -18,12 +18,12 @@ Omit the port only for status, measure, and faults to inspect every configured p
 
 ```sh
 sudo poe_ctl.sh status
-sudo poe_ctl.sh status 6
-sudo poe_ctl.sh measure 6
-sudo poe_ctl.sh faults 6
-sudo poe_ctl.sh off 6
-sudo poe_ctl.sh on 6
-sudo poe_ctl.sh restart 6
+sudo poe_ctl.sh status 1
+sudo poe_ctl.sh measure 1
+sudo poe_ctl.sh faults 1
+sudo poe_ctl.sh off 1
+sudo poe_ctl.sh on 1
+sudo poe_ctl.sh restart 1
 ```
 
 Power commands immediately affect the connected device. The script never automatically restores the previous state.
