@@ -9,7 +9,6 @@
 | `info` | Show model, profile, configured port count, and physical port mapping without accessing I2C |
 | `status [port]` | Show enabled state, Power Good, PD detection, classification, mode, and per-chip supply events |
 | `measure [port]` | Show voltage in V, current in mA, and calculated power in W |
-| `faults [port]` | Show recorded port and supply fault events |
 | `on port` | Enable detection/classification and request power for one port |
 | `off port` | Request power-off and read back the enabled state |
 | `restart port` | Turn off, wait three additional seconds, then turn on |
@@ -17,10 +16,9 @@
 Omit the port only for status, measure, and faults to inspect every configured port. Port arguments are physical, one-based numbers. A selected port still causes status/faults to display its controller's shared supply events.
 
 ```sh
-sudo poe_ctl.sh status
-sudo poe_ctl.sh status 1
-sudo poe_ctl.sh measure 1
-sudo poe_ctl.sh faults 1
+poe_ctl.sh status
+poe_ctl.sh status 1
+poe_ctl.sh measure 1
 sudo poe_ctl.sh off 1
 sudo poe_ctl.sh on 1
 sudo poe_ctl.sh restart 1
@@ -31,7 +29,17 @@ Power commands immediately affect the connected device. The script never automat
 ## Reading status
 
 ```text
-Port 6 [bus8/0x29 P3]: Power=1  PowerGood=1  Detection=Good (PD detected)  Class=Class 4  Mode=Auto
+nvidia@nvidia-desktop:~$ poe_ctl.sh status
+Port 1 [bus8/0x28 P4]: Power=1  PowerGood=1  Detection=Good (PD detected)  Class=Class 4  Mode=Auto
+Port 2 [bus8/0x28 P3]: Power=0  PowerGood=0  Detection=Open circuit (no PD)  Class=off  Mode=Auto
+Port 3 [bus8/0x28 P2]: Power=0  PowerGood=0  Detection=Open circuit (no PD)  Class=off  Mode=Auto
+Port 4 [bus8/0x28 P1]: Power=0  PowerGood=0  Detection=Open circuit (no PD)  Class=off  Mode=Auto
+Port 5 [bus8/0x29 P4]: Power=0  PowerGood=0  Detection=Open circuit (no PD)  Class=off  Mode=Auto
+Port 6 [bus8/0x29 P3]: Power=0  PowerGood=0  Detection=Open circuit (no PD)  Class=off  Mode=Auto
+Port 7 [bus8/0x29 P2]: Power=0  PowerGood=0  Detection=Open circuit (no PD)  Class=off  Mode=Auto
+Port 8 [bus8/0x29 P1]: Power=0  PowerGood=0  Detection=Open circuit (no PD)  Class=off  Mode=Auto
+System event register (0x0A) [bus8/0x28] = 0x32
+System event register (0x0A) [bus8/0x29] = 0x33
 ```
 
 - Power is the controller's power-enabled bit.
@@ -58,6 +66,23 @@ The measure command reads raw measurement registers even when a port is off.
 
 Faults reads 0x06, 0x08, and 0x0A, avoiding their clear-on-read counterparts. Events may describe earlier conditions. Successful write commands and errors are sent to the system logger when available:
 
-```sh
-journalctl -t poe_ctl
+```text
+nvidia@nvidia-desktop:~$ poe_ctl.sh measure
+Port 1: Voltage=53.22 V  Current=79.6 mA  Power=4.2 W
+Port 2: Voltage=N/A  Current=N/A  Power=0.0 W (PowerGood=0)
+Port 3: Voltage=N/A  Current=N/A  Power=0.0 W (PowerGood=0)
+Port 4: Voltage=N/A  Current=N/A  Power=0.0 W (PowerGood=0)
+Port 5: Voltage=N/A  Current=N/A  Power=0.0 W (PowerGood=0)
+Port 6: Voltage=N/A  Current=N/A  Power=0.0 W (PowerGood=0)
+Port 7: Voltage=N/A  Current=N/A  Power=0.0 W (PowerGood=0)
+Port 8: Voltage=N/A  Current=N/A  Power=0.0 W (PowerGood=0)
+```
+
+```text
+nvidia@nvidia-desktop:~$ journalctl -t poe_ctl
+Nov 19 09:14:26 nvidia-desktop poe_ctl[5397]: OFF port 1 (bus8/0x28 P4) OK
+Nov 19 09:14:31 nvidia-desktop poe_ctl[5490]: ON port 1 (bus8/0x28 P4) OK (1s)
+Nov 19 09:14:36 nvidia-desktop poe_ctl[5550]: RESTART port 1
+Nov 19 09:14:37 nvidia-desktop poe_ctl[5589]: OFF port 1 (bus8/0x28 P4) OK
+Nov 19 09:14:41 nvidia-desktop poe_ctl[5651]: ON port 1 (bus8/0x28 P4) OK (1s)
 ```
