@@ -1,6 +1,6 @@
-# Introduction
+# Utility Documentation
 
-This is sample code for Axiomtek AIE900A-AO
+This repository contains documentation, usage guides, and troubleshooting notes for various utilities and helper tools.
 
 # Image Flash
 
