@@ -4,7 +4,7 @@ This repository contains documentation, usage guides, and troubleshooting notes 
 
 # Image Flash
 
-### **Before flashing image, you MUST prepare a Linux host system running x86_64 Ubuntu 18.04 or later.**
+### **Before flashing image, you MUST prepare a Linux host system running x86_64 Ubuntu 22.04 or later.**
 - **Step 1. Set up the AIE900A-AO connection as follows:**
     * Take off the Maintenance cover.
     * Connect a USB cable from the Linux host system to the Micro USB port on AIE900A-AO, and switch the recovery       switch to ON.
